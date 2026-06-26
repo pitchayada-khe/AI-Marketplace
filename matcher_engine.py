@@ -41,21 +41,17 @@ def evaluate_driver_match(driver, route_data):
 
     if not possible_matches:
         return {"is_match": False, "score_pct": 0, "framework_used": None}
-
-    best_match = possible_matches[0]
     
-    final_score_pct = 0
-    if MatchConfig.SYSTEM_PHASE == 1:
-        final_score_pct = calculate_rule_based_score(best_match)
+    for match in possible_matches:
+        if MatchConfig.SYSTEM_PHASE == 1:
+            match["score_pct"] = calculate_rule_based_score(match)
+        elif MatchConfig.SYSTEM_PHASE == 2:
+            # TODO: เรียกใช้ฟังก์ชัน ML Model เช่น match["score_pct"] = predict_ml(match)
+            pass
 
-    elif MatchConfig.SYSTEM_PHASE == 2:
-        # TODO: ใส่ฟังก์ชันเรียก ML Model ในอนาคต
-        pass
+    best_match = max(possible_matches, key=lambda x: x["score_pct"])
+    best_match["framework_used"] = best_match["framework"]
 
-    best_match.update({
-        "score_pct": final_score_pct,
-        "framework_used": best_match["framework"]
-    })
     return best_match
 
 def score_all_drivers_for_job(job, filtered_drivers, route_data_map):
