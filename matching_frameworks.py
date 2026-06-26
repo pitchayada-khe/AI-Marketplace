@@ -1,6 +1,4 @@
 class MatchConfig:
-    SYSTEM_PHASE = 1  # 1 = Rule-Based, 2 = ML Model
-    
     # M1 Thresholds
     M1_DETOUR_MAX_KM = 50
     M1_PICKUP_MAX_KM = 20
