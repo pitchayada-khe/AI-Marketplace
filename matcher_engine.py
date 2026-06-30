@@ -60,13 +60,8 @@ def prepare_features_for_ml(driver, route_data, match_result):
         # "idle_time_minutes": ,
         
         # "hour_of_day": ,
-        # "is_peak_hour": ,
-        # "rain_flag": ,
-        # "job_price": ,
-        # "price_per_km": ,
         
         # "current_load_utilization": ,
-        # "remaining_stops": ,
         # "route_completion_ratio": ,
         # "is_returning": ,
 
