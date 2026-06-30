@@ -1,0 +1,14 @@
+# requirements.txt
+fastapi==0.138.0
+pydantic==2.13.4
+uvicorn[standard]>=0.30.0
+
+# ML
+catboost>=1.2
+optuna>=3.6
+scikit-learn>=1.4
+pandas>=2.0
+numpy>=1.26
+shap>=0.45
+matplotlib>=3.8
+requests>=2.31
